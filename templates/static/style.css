@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #218838;
+}
+
+.results-card {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.results-card p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Signal colors */
+.buy { color: green; font-weight: bold; }
+.sell { color: red; font-weight: bold; }
+.hold { color: orange; font-weight: bold; }
+.error { color: gray; font-weight: bold; }
+
+/* Graph */
+.graph-container {
+    margin-top: 20px;
+}
+
+.graph-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    input[type="text"] { width: 60%; font-size: 14px; }
+    button { font-size: 14px; padding: 10px; }
+}

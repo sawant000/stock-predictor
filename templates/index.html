@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Price Predictor</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #0f172a; /* dark blue */
+            color: #e5e7eb;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 40px auto;
+            background: #020617;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #f8fafc;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 220px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background: #020617;
+            color: #f8fafc;
+            border: 1px solid #334155;
+        }
+
+        button {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: #22c55e;
+            color: #022c22;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #16a34a;
+        }
+
+        .results {
+            margin-top: 20px;
+            background: #020617;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .results p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .signal {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .BUY, .STRONG\ BUY {
+            color: #22c55e;
+        }
+
+        .SELL, .STRONG\ SELL {
+            color: #ef4444;
+        }
+
+        .HOLD {
+            color: #eab308;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            background: #020617;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📈 Stock Price Predictor</h1>
+
+    <form method="POST">
+        <input type="text" name="symbol" placeholder="Enter Stock Symbol (AAPL)" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if price %}
+        <div class="results">
+            <p><strong>Current Price:</strong> ₹ {{ price }}</p>
+            <p><strong>Predicted Price:</strong> ₹ {{ predicted_price }}</p>
+            <p><strong>RSI:</strong> {{ rsi }}</p>
+
+            <p class="signal {{ signal }}">
+                Signal: {{ signal }}
+            </p>
+
+            <img src="{{ graph_path }}" alt="Stock Graph">
+        </div>
+    {% endif %}
+</div>
+
+<footer>
+    Built with Flask · ML · RSI · Matplotlib
+</footer>
+
+</body>
+</html>
